@@ -59,6 +59,7 @@ While the tests cover the essential features, there are still areas that need op
 - **Locators**
 - **Scrolling**
 - **Data Import**
+- **CI/CD with GitHub Actions**
 
 ## License
 
