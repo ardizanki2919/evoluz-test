@@ -91,14 +91,12 @@ test.describe('Permintaan Pelayanan', () => {
   test('Melakukan pencarian dengan data valid yang telah ditambahkan', async ({ page }) => {
     await login(page);
     await navigateToRequestPage(page);
-    await search(page, 'Judul Permintaan Test CCTV 1');
-    await expect(page.getByRole('cell', { name: 'Judul Permintaan Test CCTV 1' })).toBeVisible();
+    await search(page, 'Judul Permintaan Test CCTV 1', 'Judul Permintaan Test CCTV 1');
   });
 
   test('Melakukan pencarian dengan data valid yang tidak tersedia', async ({ page }) => {
     await login(page);
     await navigateToRequestPage(page);
-    await search(page, 'ABC 123 456');
-    await expect(page.getByRole('cell', { name: 'Data Tidak Ada' })).toBeVisible();
+    await search(page, 'ABC 123 456', 'Data Tidak Ada');
   });
 });

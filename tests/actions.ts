@@ -41,9 +41,13 @@ export const handleWaitingAction = async (page, action, reason = '') => {
     await page.waitForTimeout(20000);
 };
 
-export const search = async (page, keywords = '') => {
+export const search = async (page, keywords = '', expectedText) => {
     await page.locator('#search').fill(keywords);
     await page.waitForTimeout(6000);
+
+    if (expectedText) {
+        await expect(page.getByRole('cell', { name: expectedText })).toBeVisible();
+    };
 };
 
 export const backToRequestPage = async (page) => {
