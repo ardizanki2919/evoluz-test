@@ -16,7 +16,6 @@ const login = async (page) => {
   await page.locator('#nameOrEmail').fill(username || '');
   await page.locator('#password').fill(password || '');
   await page.getByRole('button', { name: '󰍂 Masuk' }).click();
-  
   await page.waitForTimeout(6000);
   await expect(page).toHaveURL(`${baseUrl}/dashboard/project`);
 };
@@ -34,7 +33,6 @@ const addService = async (page, title = '', details = '') => {
 
     await page.locator('#billing_requestService').fill(title);
     await page.locator('.ck-placeholder').fill(details);
-
     await page.getByRole('button', { name: ' Kirim' }).click();
     await page.waitForTimeout(10000);
 };
@@ -58,7 +56,6 @@ const handleWaitingAction = async (page, action, reason = '') => {
     default:
       throw new Error(`Invalid action: ${action}`);
     };
-
     await page.getByRole('button', { name: ' Ubah' }).click();
     await page.waitForTimeout(20000);
 };
