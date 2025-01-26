@@ -47,17 +47,14 @@ const handleWaitingAction = async (page, action, reason = '') => {
         case 'accept':
             await page.getByRole('button', { name: 'Ya, Terima' }).click();
             break;
-        
         case 'consider':
             await page.getByRole('button', { name: 'Dipertimbangkan' }).click();
             await page.locator('#considerReason"]').fill(reason);
             break;
-
         case 'reject':
             await page.getByRole('button', { name: 'Tidak' }).click();
             await page.locator('#rejectionReason"]').fill(reason);
             break;
-
     default:
       throw new Error(`Invalid action: ${action}`);
     };
@@ -84,7 +81,6 @@ test.describe('Permintaan Pelayanan', () => {
         'Test Permintaan Test CCTV 11',
         'Detail permintaan test CCTV terbaru'
     );
-
     await handleWaitingAction(page, 'accept');
 
     await page.getByRole('button', { name: '󰁍 Kembali' }).click();
@@ -100,7 +96,6 @@ test.describe('Permintaan Pelayanan', () => {
         'Test Permintaan Test CCTV 12',
         'Detail permintaan test CCTV terbaru'
     );
-
     await handleWaitingAction(page, 'reject', 'pengajuan ditolak');
 
     await page.getByRole('button', { name: '󰁍 Kembali' }).click();
@@ -116,7 +111,6 @@ test.describe('Permintaan Pelayanan', () => {
         'Test Permintaan Test CCTV 13',
         'Detail permintaan test CCTV terbaru'
     );
-
     await handleWaitingAction(page, 'consider', 'pengajuan ditangguhkan');
 
     await page.getByRole('button', { name: '󰁍 Kembali' }).click();
@@ -131,7 +125,6 @@ test.describe('Permintaan Pelayanan', () => {
         page,
         'Judul Permintaan Test CCTV 5'
     );
-
     await handleWaitingAction(page, 'accept');
 
     await page.getByRole('button', { name: '󰁍 Kembali' }).click();
