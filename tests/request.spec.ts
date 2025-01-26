@@ -140,6 +140,20 @@ test.describe('Permintaan Pelayanan', () => {
     );
   });
 
+  test('Menambah permintaan pelayanan dengan judul > 100 karakter', async ({ page }) => {
+    await login(page);
+    await navigateToRequestPage(page);
+    await addService(
+        page,
+        'Judul Permintaan Test CCTV 5 Judul Permintaan Test CCTV 5 Judul Permintaan Test CCTV 5 Judul dengarya'
+    );
+    await handleWaitingAction(page, 'accept');
+
+    await page.getByRole('button', { name: '󰁍 Kembali' }).click();
+    await page.waitForTimeout(6000);
+    await expect(page).toHaveURL(`${baseUrl}/apps/request-service`);
+  });
+
   test('Melakukan pencarian dengan data valid yang telah ditambahkan', async ({ page }) => {
     await login(page);
     await navigateToRequestPage(page);
