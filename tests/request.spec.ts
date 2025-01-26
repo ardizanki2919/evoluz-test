@@ -118,7 +118,7 @@ test.describe('Permintaan Pelayanan', () => {
     await expect(page).toHaveURL(`${baseUrl}/apps/request-service`);
   });
 
-  test('Menambah permintaan pelayanan dengan hanya mengisi judul', async ({ page }) => {
+  test('Menambahkan permintaan pelayanan dengan mengisi hanya bagian judul', async ({ page }) => {
     await login(page);
     await navigateToRequestPage(page);
     await addService(
@@ -132,7 +132,7 @@ test.describe('Permintaan Pelayanan', () => {
     await expect(page).toHaveURL(`${baseUrl}/apps/request-service`);
   });
 
-  test('Menambah permintaan pelayanan tanpa mengisi judul', async ({ page }) => {
+  test('Menambahkan permintaan pelayanan tanpa mengisi bagian judul', async ({ page }) => {
     await login(page);
     await navigateToRequestPage(page);
     await addService(
@@ -140,7 +140,7 @@ test.describe('Permintaan Pelayanan', () => {
     );
   });
 
-  test('Menambah permintaan pelayanan dengan judul > 100 karakter', async ({ page }) => {
+  test('Menambahkan permintaan pelayanan dengan judul > 100 karakter', async ({ page }) => {
     await login(page);
     await navigateToRequestPage(page);
     await addService(
