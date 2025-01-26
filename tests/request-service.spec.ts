@@ -58,7 +58,7 @@ test.describe('Permintaan Pelayanan', () => {
   test('Menambahkan permintaan pelayanan dengan judul > 100 karakter', async ({ page }) => {
     await login(page);
     await navigateToRequestPage(page);
-    await createServiceRequest(page, requestData.edgeRequests[3].title, requestData.validRequests[3].detail);
+    await createServiceRequest(page, requestData.edgeRequests[3].title, requestData.edgeRequests[3].detail);
     await handleWaitingAction(page, requestData.edgeRequests[3].status);
     await backToRequestPage(page);
   });
