@@ -47,7 +47,7 @@ To run tests in UI Mode:
 npx playwright test request-service.spec.ts --ui
 ```
 
-### Usage Video
+## Usage Video
 
 For a quick demonstration of how to use this testing setup, refer to the following video link: [Usage Video](https://drive.google.com/file/d/1PWBP9CONMEi3FCx1-sOeH4LaQ8NGzu78/view?usp=sharing)
 
