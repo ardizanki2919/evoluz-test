@@ -123,7 +123,7 @@ test.describe('Permintaan Pelayanan', () => {
     await navigateToRequestPage(page);
     await addService(
         page,
-        'Judul Permintaan Test CCTV 5'
+        'Judul Permintaan Test CCTV 15'
     );
     await handleWaitingAction(page, 'accept');
 
@@ -145,7 +145,7 @@ test.describe('Permintaan Pelayanan', () => {
     await navigateToRequestPage(page);
     await addService(
         page,
-        'Judul Permintaan Test CCTV 5 Judul Permintaan Test CCTV 5 Judul Permintaan Test CCTV 5 Judul dengarya'
+        'Judul Permintaan Test CCTV 7 Judul Permintaan Test CCTV 7 Judul Permintaan Test CCTV 7 Jodol dengarya'
     );
     await handleWaitingAction(page, 'accept');
 
