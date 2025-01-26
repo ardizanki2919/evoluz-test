@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { baseUrl } from '../utils/config';
-import { login } from './login';
-import { navigateToRequestPage, createServiceRequest, handleWaitingAction, searchServiceRequest, backToRequestPage } from './actions';
+import { login } from '../modules/login';
+import { navigateToRequestPage, createServiceRequest, handleWaitingAction, searchServiceRequest, backToRequestPage } from '../modules/actions';
 
 test.describe('Permintaan Pelayanan', () => {
   test('Login dengan kredensial valid', async ({ page }) => {
