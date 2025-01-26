@@ -1,75 +1,7 @@
 import { test, expect } from '@playwright/test';
-import dotenv from 'dotenv';
-
-dotenv.config();
-
-const baseUrl = process.env.BASE_URL;
-const username = process.env.USERNAME;
-const password = process.env.PASSWORD;
-
-if (!baseUrl || !username || !password) {
-  throw new Error('Please set BASE_URL, USERNAME, and PASSWORD in your .env file.');
-}
-
-const login = async (page) => {
-  await page.goto(`${baseUrl}/account/login`);
-  await page.locator('#nameOrEmail').fill(username || '');
-  await page.locator('#password').fill(password || '');
-  await page.getByRole('button', { name: '󰍂 Masuk' }).click();
-  await page.waitForTimeout(6000);
-  await expect(page).toHaveURL(`${baseUrl}/dashboard/project`);
-};
-
-const navigateToRequestPage = async (page) => {
-    await page.getByRole('link', { name: ' Permintaan Pelayanan' }).click();
-    await page.waitForTimeout(6000);
-    await page.waitForURL(`${baseUrl}/apps/request-service`);
-};
-
-const addService = async (page, title = '', details = '') => {
-    await page.getByRole('button', { name: ' Tambah Permintaan Pelayanan' }).click();
-    await page.waitForTimeout(6000);
-    await expect(page).toHaveURL(`${baseUrl}/apps/request-service/add`);
-
-    await page.locator('#billing_requestService').fill(title);
-    await page.locator('.ck-placeholder').fill(details);
-    await page.getByRole('button', { name: ' Kirim' }).click();
-    await page.waitForTimeout(10000);
-};
-
-const handleWaitingAction = async (page, action, reason = '') => {
-    await page.getByRole('button', { name: 'waiting' }).click()
-    await page.waitForTimeout(10000);
-
-    switch (action) {
-        case 'accept':
-            await page.getByRole('button', { name: 'Ya, Terima' }).click();
-            break;
-        case 'consider':
-            await page.getByRole('button', { name: 'Dipertimbangkan' }).click();
-            await page.locator('#considerReason"]').fill(reason);
-            break;
-        case 'reject':
-            await page.getByRole('button', { name: 'Tidak' }).click();
-            await page.locator('#rejectionReason"]').fill(reason);
-            break;
-    default:
-      throw new Error(`Invalid action: ${action}`);
-    };
-    await page.getByRole('button', { name: ' Ubah' }).click();
-    await page.waitForTimeout(20000);
-};
-
-const search = async (page, keywords = '') => {
-    await page.locator('#search').fill(keywords);
-    await page.waitForTimeout(6000);
-};
-
-const backToRequestPage = async (page) => {
-  await page.getByRole('button', { name: '󰁍 Kembali' }).click();
-  await page.waitForTimeout(6000);
-  await expect(page).toHaveURL(`${baseUrl}/apps/request-service`);
-};
+import { baseUrl } from '../utils/config';
+import { login } from './login';
+import { navigateToRequestPage, addService, handleWaitingAction, search, backToRequestPage } from './actions';
 
 test.describe('Permintaan Pelayanan', () => {
   test('Login dengan kredensial valid', async ({ page }) => {
@@ -129,6 +61,7 @@ test.describe('Permintaan Pelayanan', () => {
     await addService(
         page
     );
+    await expect(page.locator('text=Judul usulan harus diisi')).toBeVisible();
   });
 
   test('Menambahkan permintaan pelayanan dengan judul > 100 karakter', async ({ page }) => {
