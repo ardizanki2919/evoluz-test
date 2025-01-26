@@ -140,10 +140,11 @@ test.describe('Permintaan Pelayanan', () => {
     );
   });
 
-  test('Melakukan pencarian dengan data valid yang tersedia', async ({ page }) => {
+  test('Melakukan pencarian dengan data valid yang telah ditambahkan', async ({ page }) => {
     await login(page);
     await navigateToRequestPage(page);
-    await search(page, 'Judul Permintaan Test CCTV 3');
+    await search(page, 'Judul Permintaan Test CCTV 1');
+    await expect(page.getByRole('cell', { name: 'Judul Permintaan Test CCTV 1' })).toBeVisible();
   });
 
   test('Melakukan pencarian dengan data valid yang tidak tersedia', async ({ page }) => {
