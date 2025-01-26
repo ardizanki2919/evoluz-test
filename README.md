@@ -42,7 +42,6 @@ Create a .env file in the root directory, and set its values based on the provid
 
 To run the Playwright tests in UI Mode, use the following command:
 
-Run tests in UI mode
 ```bash
 npx playwright test request.spec.ts --ui
 ```
