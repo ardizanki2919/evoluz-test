@@ -4,7 +4,7 @@ This repository contains tests for the **Tambah Permintaan Pelayanan** feature o
 
 ### Testing Framework
 
-The tests are written using **Playwright**, a powerful framework for end-to-end testing in modern web applications.
+Tests are written using  **Playwright**, a powerful end-to-end testing framework for modern web applications.
 
 ### Test Cases
 
@@ -15,39 +15,33 @@ You can view the test cases created for this feature on the following [Google Sh
 
 ## How to Use
 
-Follow the steps below to set up and run the tests:
-
-#### 1. Clone the Repository
-
-First, clone this repository to your local machine.
+#### 1. Clone Repository
 
 ```bash
 git clone https://github.com/ardizanki2919/evoluz-test.git
 ```
 
-#### 2. Install Dependencies
-
-Navigate to the project directory and install the required dependencies using npm.
-
 ```bash
 cd evoluz-test
 ```
+
+#### 2. Install Dependencies
 
 ```bash
 npm install
 ```
 
-#### 3. Open Project Using Code Editor
+#### 3. Open Project with Code Editor
 
-You can use **VS Code** or **Cursor**.
+Use **VS Code** or **Cursor**.
 
 #### 4. Set Up Environment Variables
 
-Create a .env file in the root directory, and set its values based on the provided .env.example file.
+Create a .env file in the root directory, using .env.example as a template.
 
-#### 5. Running Playwright Tests
+#### 5. Run Playwright Tests
 
-To run the Playwright tests in UI Mode, use the following command:
+To run tests in UI Mode:
 
 ```bash
 npx playwright test request-service.spec.ts --ui
@@ -57,12 +51,12 @@ npx playwright test request-service.spec.ts --ui
 
 For a quick demonstration of how to use this testing setup, refer to the following video link: [Usage Video](https://drive.google.com/file/d/1PWBP9CONMEi3FCx1-sOeH4LaQ8NGzu78/view?usp=sharing)
 
-## Areas for Improvement
+## Improvement Areas
 
 While the tests cover the essential features, there are still areas that need optimization:
 
 - **Timeout**
-- **Locator**
+- **Locators**
 - **Scrolling**
 - **Data Import**
 
