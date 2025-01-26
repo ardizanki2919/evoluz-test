@@ -34,11 +34,15 @@ cd evoluz-test
 npm install
 ```
 
-#### 3. Set Up Environment Variables
+#### 3. Open Project Using Code Editor
+
+You can use **VS Code** or **Cursor**.
+
+#### 4. Set Up Environment Variables
 
 Create a .env file in the root directory, and set its values based on the provided .env.example file.
 
-#### 4. Running Playwright Tests
+#### 5. Running Playwright Tests
 
 To run the Playwright tests in UI Mode, use the following command:
 
