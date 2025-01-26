@@ -19,7 +19,7 @@ Follow the steps below to set up and run the tests:
 First, clone this repository to your local machine.
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/ardizanki2919/evoluz-test.git
 ```
 
 #### 2. Install Dependencies
