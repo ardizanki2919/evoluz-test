@@ -32,7 +32,7 @@ export const requestData = {
       {
         title:
           'Judul Permintaan Test CCTV 7 Judul Permintaan Test CCTV 7 Judul Permintaan Test CCTV 7 Jodol dengarya',
-        detail: '',
+        detail: 'Detail permintaan test CCTV terbaru',
         status: 'accept',
       },
     ],
