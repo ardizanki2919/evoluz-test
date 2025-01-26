@@ -55,11 +55,12 @@ For a quick demonstration of how to run this testing , watch the tutorial video 
 
 While the tests cover the essential features, there are still areas that need optimization:
 
-- **Timeout**
-- **Locators**
-- **Scrolling**
-- **Data Import**
-- **CI/CD with GitHub Actions**
+- [x] Project Structure
+- [x] Data Import
+- [ ] Timeout
+- [ ] Locators
+- [ ] Scrolling
+- [ ] CI/CD with GitHub Actions
 
 ## License
 
