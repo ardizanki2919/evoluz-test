@@ -57,6 +57,7 @@ While the tests cover the essential features, there are still areas that need op
 
 - [x] Project Structure
 - [x] Data Import
+- [ ] Upload File
 - [ ] Timeout
 - [ ] Locators
 - [ ] Scrolling
