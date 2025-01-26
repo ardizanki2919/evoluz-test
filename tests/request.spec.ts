@@ -154,6 +154,19 @@ test.describe('Permintaan Pelayanan', () => {
     await expect(page).toHaveURL(`${baseUrl}/apps/request-service`);
   });
 
+  test('Kembali ke halaman permintaan pelayanan', async ({ page }) => {
+    await login(page);
+    await navigateToRequestPage(page);
+    
+    await page.getByRole('button', { name: ' Tambah Permintaan Pelayanan' }).click();
+    await page.waitForTimeout(6000);
+    await expect(page).toHaveURL(`${baseUrl}/apps/request-service/add`);
+
+    await page.getByRole('link', { name: '󰁍 Kembali' }).click();
+    await page.waitForTimeout(6000);
+    await expect(page).toHaveURL(`${baseUrl}/apps/request-service`);
+  });
+
   test('Melakukan pencarian dengan data valid yang telah ditambahkan', async ({ page }) => {
     await login(page);
     await navigateToRequestPage(page);
