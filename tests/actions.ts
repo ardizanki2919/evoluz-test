@@ -7,7 +7,7 @@ export const navigateToRequestPage = async (page) => {
     await page.waitForURL(`${baseUrl}/apps/request-service`);
 };
 
-export const addService = async (page, title = '', details = '') => {
+export const createServiceRequest = async (page, title = '', details = '') => {
     await page.getByRole('button', { name: ' Tambah Permintaan Pelayanan' }).click();
     await page.waitForTimeout(6000);
     await expect(page).toHaveURL(`${baseUrl}/apps/request-service/add`);
@@ -41,7 +41,7 @@ export const handleWaitingAction = async (page, action, reason = '') => {
     await page.waitForTimeout(20000);
 };
 
-export const search = async (page, keywords = '', expectedText) => {
+export const searchServiceRequest = async (page, keywords = '', expectedText) => {
     await page.locator('#search').fill(keywords);
     await page.waitForTimeout(6000);
 

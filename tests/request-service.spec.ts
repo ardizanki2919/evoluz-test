@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { baseUrl } from '../utils/config';
 import { login } from './login';
-import { navigateToRequestPage, addService, handleWaitingAction, search, backToRequestPage } from './actions';
+import { navigateToRequestPage, createServiceRequest, handleWaitingAction, searchServiceRequest, backToRequestPage } from './actions';
 
 test.describe('Permintaan Pelayanan', () => {
   test('Login dengan kredensial valid', async ({ page }) => {
@@ -11,7 +11,7 @@ test.describe('Permintaan Pelayanan', () => {
   test('Menambahkan permintaan pelayanan dan mengubah status menjadi Accepted', async ({ page }) => {
     await login(page);
     await navigateToRequestPage(page);
-    await addService(
+    await createServiceRequest(
         page,
         'Test Permintaan Test CCTV 11',
         'Detail permintaan test CCTV terbaru'
@@ -23,7 +23,7 @@ test.describe('Permintaan Pelayanan', () => {
   test('Menambahkan permintaan pelayanan dan mengubah status menjadi Rejected', async ({ page }) => {
     await login(page);
     await navigateToRequestPage(page);
-    await addService(
+    await createServiceRequest(
         page,
         'Test Permintaan Test CCTV 14',
         'Detail permintaan test CCTV terbaru'
@@ -35,7 +35,7 @@ test.describe('Permintaan Pelayanan', () => {
   test('Menambahkan permintaan pelayanan dan mengubah status menjadi Considered', async ({ page }) => {
     await login(page);
     await navigateToRequestPage(page);
-    await addService(
+    await createServiceRequest(
         page,
         'Test Permintaan Test CCTV 13',
         'Detail permintaan test CCTV terbaru'
@@ -47,7 +47,7 @@ test.describe('Permintaan Pelayanan', () => {
   test('Menambahkan permintaan pelayanan dengan mengisi hanya bagian judul', async ({ page }) => {
     await login(page);
     await navigateToRequestPage(page);
-    await addService(
+    await createServiceRequest(
         page,
         'Judul Permintaan Test CCTV 15'
     );
@@ -58,7 +58,7 @@ test.describe('Permintaan Pelayanan', () => {
   test('Menambahkan permintaan pelayanan tanpa mengisi bagian judul', async ({ page }) => {
     await login(page);
     await navigateToRequestPage(page);
-    await addService(
+    await createServiceRequest(
         page
     );
     await expect(page.locator('text=Judul usulan harus diisi')).toBeVisible();
@@ -67,7 +67,7 @@ test.describe('Permintaan Pelayanan', () => {
   test('Menambahkan permintaan pelayanan dengan judul > 100 karakter', async ({ page }) => {
     await login(page);
     await navigateToRequestPage(page);
-    await addService(
+    await createServiceRequest(
         page,
         'Judul Permintaan Test CCTV 7 Judul Permintaan Test CCTV 7 Judul Permintaan Test CCTV 7 Jodol dengarya'
     );
@@ -91,12 +91,12 @@ test.describe('Permintaan Pelayanan', () => {
   test('Melakukan pencarian dengan data valid yang telah ditambahkan', async ({ page }) => {
     await login(page);
     await navigateToRequestPage(page);
-    await search(page, 'Judul Permintaan Test CCTV 1', 'Judul Permintaan Test CCTV 1');
+    await searchServiceRequest(page, 'Judul Permintaan Test CCTV 1', 'Judul Permintaan Test CCTV 1');
   });
 
   test('Melakukan pencarian dengan data valid yang tidak tersedia', async ({ page }) => {
     await login(page);
     await navigateToRequestPage(page);
-    await search(page, 'ABC 123 456', 'Data Tidak Ada');
+    await searchServiceRequest(page, 'ABC 123 456', 'Data Tidak Ada');
   });
 });
