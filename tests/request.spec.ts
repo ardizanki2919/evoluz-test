@@ -36,12 +36,12 @@ const addService = async (page, title = '', details = '') => {
     await page.locator('.ck-placeholder').fill(details);
 
     await page.getByRole('button', { name: ' Kirim' }).click();
-    await page.waitForTimeout(30000);
+    await page.waitForTimeout(10000);
 };
 
 const handleWaitingAction = async (page, action, reason = '') => {
     await page.getByRole('button', { name: 'waiting' }).click()
-    await page.waitForTimeout(30000);
+    await page.waitForTimeout(10000);
 
     switch (action) {
         case 'accept':
@@ -63,7 +63,7 @@ const handleWaitingAction = async (page, action, reason = '') => {
     };
 
     await page.getByRole('button', { name: ' Ubah' }).click();
-    await page.waitForTimeout(30000);
+    await page.waitForTimeout(20000);
 };
 
 const search = async (page, keywords = '') => {
@@ -81,7 +81,7 @@ test.describe('Permintaan Pelayanan', () => {
     await navigateToRequestPage(page);
     await addService(
         page,
-        'Judul Permintaan Test CCTV 5',
+        'Test Permintaan Test CCTV 11',
         'Detail permintaan test CCTV terbaru'
     );
 
@@ -97,7 +97,7 @@ test.describe('Permintaan Pelayanan', () => {
     await navigateToRequestPage(page);
     await addService(
         page,
-        'Judul Permintaan Test CCTV 6',
+        'Test Permintaan Test CCTV 12',
         'Detail permintaan test CCTV terbaru'
     );
 
@@ -113,7 +113,7 @@ test.describe('Permintaan Pelayanan', () => {
     await navigateToRequestPage(page);
     await addService(
         page,
-        'Judul Permintaan Test CCTV 7',
+        'Test Permintaan Test CCTV 13',
         'Detail permintaan test CCTV terbaru'
     );
 
