@@ -66,7 +66,13 @@ const handleWaitingAction = async (page, action, reason = '') => {
 const search = async (page, keywords = '') => {
     await page.locator('#search').fill(keywords);
     await page.waitForTimeout(6000);
-  };
+};
+
+const backToRequestPage = async (page) => {
+  await page.getByRole('button', { name: '󰁍 Kembali' }).click();
+  await page.waitForTimeout(6000);
+  await expect(page).toHaveURL(`${baseUrl}/apps/request-service`);
+};
 
 test.describe('Permintaan Pelayanan', () => {
   test('Login dengan kredensial valid', async ({ page }) => {
@@ -82,10 +88,7 @@ test.describe('Permintaan Pelayanan', () => {
         'Detail permintaan test CCTV terbaru'
     );
     await handleWaitingAction(page, 'accept');
-
-    await page.getByRole('button', { name: '󰁍 Kembali' }).click();
-    await page.waitForTimeout(6000);
-    await expect(page).toHaveURL(`${baseUrl}/apps/request-service`);
+    await backToRequestPage(page);
   });
 
   test('Menambahkan permintaan pelayanan dan mengubah status menjadi Rejected', async ({ page }) => {
@@ -93,14 +96,11 @@ test.describe('Permintaan Pelayanan', () => {
     await navigateToRequestPage(page);
     await addService(
         page,
-        'Test Permintaan Test CCTV 12',
+        'Test Permintaan Test CCTV 14',
         'Detail permintaan test CCTV terbaru'
     );
     await handleWaitingAction(page, 'reject', 'pengajuan ditolak');
-
-    await page.getByRole('button', { name: '󰁍 Kembali' }).click();
-    await page.waitForTimeout(6000);
-    await expect(page).toHaveURL(`${baseUrl}/apps/request-service`);
+    await backToRequestPage(page);
   });
 
   test('Menambahkan permintaan pelayanan dan mengubah status menjadi Considered', async ({ page }) => {
@@ -112,10 +112,7 @@ test.describe('Permintaan Pelayanan', () => {
         'Detail permintaan test CCTV terbaru'
     );
     await handleWaitingAction(page, 'consider', 'pengajuan ditangguhkan');
-
-    await page.getByRole('button', { name: '󰁍 Kembali' }).click();
-    await page.waitForTimeout(6000);
-    await expect(page).toHaveURL(`${baseUrl}/apps/request-service`);
+    await backToRequestPage(page);
   });
 
   test('Menambahkan permintaan pelayanan dengan mengisi hanya bagian judul', async ({ page }) => {
@@ -126,10 +123,7 @@ test.describe('Permintaan Pelayanan', () => {
         'Judul Permintaan Test CCTV 15'
     );
     await handleWaitingAction(page, 'accept');
-
-    await page.getByRole('button', { name: '󰁍 Kembali' }).click();
-    await page.waitForTimeout(6000);
-    await expect(page).toHaveURL(`${baseUrl}/apps/request-service`);
+    await backToRequestPage(page);
   });
 
   test('Menambahkan permintaan pelayanan tanpa mengisi bagian judul', async ({ page }) => {
@@ -148,10 +142,7 @@ test.describe('Permintaan Pelayanan', () => {
         'Judul Permintaan Test CCTV 7 Judul Permintaan Test CCTV 7 Judul Permintaan Test CCTV 7 Jodol dengarya'
     );
     await handleWaitingAction(page, 'accept');
-
-    await page.getByRole('button', { name: '󰁍 Kembali' }).click();
-    await page.waitForTimeout(6000);
-    await expect(page).toHaveURL(`${baseUrl}/apps/request-service`);
+    await backToRequestPage(page);
   });
 
   test('Kembali ke halaman permintaan pelayanan', async ({ page }) => {
