@@ -13,7 +13,7 @@ You can view the test cases created for this feature on the following [Google Sh
 ### Prerequisites
 - Node.js installed on your machine
 
-### How to Use
+## How to Use
 
 Follow the steps below to set up and run the tests:
 
@@ -61,7 +61,7 @@ npx playwright test --ui
 
 For a quick demonstration of how to use this testing setup, refer to the following video link: [Usage Video](https://drive.google.com/file/d/1PWBP9CONMEi3FCx1-sOeH4LaQ8NGzu78/view?usp=sharing)
 
-### Areas for Improvement
+## Areas for Improvement
 
 While the tests cover the essential features, there are still areas that need optimization:
 
@@ -70,7 +70,7 @@ While the tests cover the essential features, there are still areas that need op
 - **Scrolling**
 - **Data Import**
 
-### License
+## License
 
 1. You are free to use this code as inspiration.
 2. Please do not copy it directly.
