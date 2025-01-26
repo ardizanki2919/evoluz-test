@@ -40,21 +40,11 @@ Create a .env file in the root directory, and set its values based on the provid
 
 #### 4. Running Playwright Tests
 
-To run the Playwright tests, use the following command:
-
-```bash
-npx playwright test
-```
-
-```bash
-npx playwright show-report
-```
-
-or
+To run the Playwright tests in UI Mode, use the following command:
 
 Run tests in UI mode
 ```bash
-npx playwright test --ui
+npx playwright test request.spec.ts --ui
 ```
 
 ### Usage Video
