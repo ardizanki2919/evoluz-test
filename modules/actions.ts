@@ -1,4 +1,4 @@
-import { baseUrl, username, password } from '../utils/config.js';
+import { baseUrl } from '../utils/config.js';
 import { expect } from '@playwright/test';
 
 export const navigateToRequestPage = async (page) => {
