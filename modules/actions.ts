@@ -7,6 +7,12 @@ export const navigateToRequestPage = async (page) => {
     await page.waitForURL(`${baseUrl}/apps/request-service`);
 };
 
+export const navigateToCreateService = async (page, title = '', details = '') => {
+    await page.getByRole('button', { name: ' Tambah Permintaan Pelayanan' }).click();
+    await page.waitForTimeout(6000);
+    await expect(page).toHaveURL(`${baseUrl}/apps/request-service/add`)
+};
+
 export const createServiceRequest = async (page, title = '', details = '') => {
     await page.getByRole('button', { name: ' Tambah Permintaan Pelayanan' }).click();
     await page.waitForTimeout(6000);
@@ -50,8 +56,14 @@ export const searchServiceRequest = async (page, keywords = '', expectedText) =>
     };
 };
 
-export const backToRequestPage = async (page) => {
+export const backToRequestPageByButton = async (page) => {
   await page.getByRole('button', { name: '󰁍 Kembali' }).click();
   await page.waitForTimeout(6000);
   await expect(page).toHaveURL(`${baseUrl}/apps/request-service`);
+};
+
+export const backToRequestPageByLink = async (page) => {
+    await page.getByRole('link', { name: '󰁍 Kembali' }).click();
+    await page.waitForTimeout(6000);
+    await expect(page).toHaveURL(`${baseUrl}/apps/request-service`);
 };
