@@ -58,8 +58,8 @@ While the tests cover the essential features, there are still areas that need op
 - [x] Project Structure
 - [x] Data Import
 - [ ] Upload File
-- [ ] Timeout
-- [ ] Locators
+- [x] Timeout
+- [x] Locators
 - [ ] Scrolling
 - [ ] CI/CD with GitHub Actions
 
