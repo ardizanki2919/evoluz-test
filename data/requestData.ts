@@ -1,18 +1,18 @@
 export const requestData = {
     validRequests: [
       {
-        title: 'Test Permintaan Test CCTV 01',
+        title: 'Test Permintaan Test CCTV 015',
         detail: 'Detail permintaan test CCTV terbaru',
         status: 'accept',
       },
       {
-        title: 'Test Permintaan Test CCTV 02',
+        title: 'Test Permintaan Test CCTV 026',
         detail: 'Detail permintaan test CCTV terbaru',
         status: 'reject',
         message: 'pengajuan ditolak',
       },
       {
-        title: 'Test Permintaan Test CCTV 03',
+        title: 'Test Permintaan Test CCTV 017',
         detail: 'Detail permintaan test CCTV terbaru',
         status: 'consider',
         message: 'pengajuan ditangguhkan',
@@ -20,7 +20,7 @@ export const requestData = {
     ],
     edgeRequests: [
       {
-        title: 'Judul Permintaan Test CCTV 04',
+        title: 'Judul Permintaan Test CCTV 018',
         detail: '',
         status: 'accept',
       },
@@ -31,15 +31,15 @@ export const requestData = {
       },
       {
         title:
-          'Judul Permintaan Test CCTV 7 Judul Permintaan Test CCTV 7 Judul Permintaan Test CCTV 7 Jodol dengarya',
+          'Judul Permintaan Test CCTV 7 Judul Permintaan Test CCTV 7 Judul Permintaan Test CCTV 9 Jodol dengarya',
         detail: 'Detail permintaan test CCTV terbaru',
         status: 'accept',
       },
     ],
     searchData: [
       {
-        query: 'Judul Permintaan Test CCTV 1',
-        expected: 'Judul Permintaan Test CCTV 1',
+        query: 'Test Permintaan Test CCTV 014',
+        expected: 'Test Permintaan Test CCTV 014',
       },
       {
         query: 'ABC 123 456',

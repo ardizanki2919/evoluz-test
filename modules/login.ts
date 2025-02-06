@@ -6,6 +6,6 @@ export const login = async (page) => {
     await page.locator('#nameOrEmail').fill(username || '');
     await page.locator('#password').fill(password || '');
     await page.getByRole('button', { name: '󰍂 Masuk' }).click();
-    await page.waitForTimeout(6000);
+    await page.waitForTimeout(3000);
     await expect(page).toHaveURL(`${baseUrl}/dashboard/project`);
 };
