@@ -60,7 +60,7 @@ While the tests cover the essential features, there are still areas that need op
 - [x] Upload File
 - [x] Timeout
 - [x] Locators
-- [ ] Scrolling
+- [x] Scrolling
 - [ ] CI/CD with GitHub Actions
 
 ## License
