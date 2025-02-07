@@ -36,9 +36,9 @@ export const requestData = {
         status: 'accept',
       },
       {
-        title: 'test',
+        title: 'Permintaan 01',
         images: './public/farma.jpeg',
-        detail: 'test',
+        detail: 'Permintaan 01',
       }
     ],
     searchData: [

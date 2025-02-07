@@ -34,6 +34,7 @@ export const createServiceRequestWithImage = async (page, title = '', images = '
     await page.locator('#file-upload').setInputFiles(images || null);
     await page.locator('.ck-placeholder').fill(details);
     await page.waitForTimeout(3000);
+    await page.mouse.down();
     await page.getByRole('button', { name: ' Kirim' }).click();
     await page.waitForTimeout(6000);
 };
