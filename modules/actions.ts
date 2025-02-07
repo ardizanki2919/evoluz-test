@@ -7,7 +7,7 @@ export const navigateToRequestPage = async (page) => {
     await page.waitForURL(`${baseUrl}/apps/request-service`);
 };
 
-export const navigateToCreateService = async (page, title = '', details = '') => {
+export const navigateToCreateService = async (page) => {
     await page.getByRole('button', { name: ' Tambah Permintaan Pelayanan' }).click();
     await page.waitForTimeout(3000);
     await expect(page).toHaveURL(`${baseUrl}/apps/request-service/add`)
