@@ -6,7 +6,7 @@ export const requestData = {
         status: 'accept',
       },
       {
-        title: 'Test Permintaan Test CCTV 026',
+        title: 'Test Permintaan Test CCTV 027',
         detail: 'Detail permintaan test CCTV terbaru',
         status: 'reject',
         message: 'pengajuan ditolak',
@@ -35,6 +35,11 @@ export const requestData = {
         detail: 'Detail permintaan test CCTV terbaru',
         status: 'accept',
       },
+      {
+        title: 'test',
+        images: './public/farma.jpeg',
+        detail: 'test',
+      }
     ],
     searchData: [
       {

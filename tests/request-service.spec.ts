@@ -5,6 +5,7 @@ import {
   navigateToRequestPage, 
   navigateToCreateService, 
   createServiceRequest, 
+  createServiceRequestWithImage,
   handleWaitingAction, 
   searchServiceRequest, 
   backToRequestPageByButton, 
@@ -34,6 +35,14 @@ test.describe('Permintaan Pelayanan', () => {
     await navigateToRequestPage(page);
     await createServiceRequest(page, requestData.validRequests[2].title, requestData.validRequests[2].detail);
     await handleWaitingAction(page, requestData.validRequests[2].status, requestData.validRequests[2].message);
+    await backToRequestPageByButton(page);
+  });
+
+  test('Menambahkan permintaan pelayanan dengan upload file', async ({ page }) => {
+    await login(page, username, password);
+    await navigateToRequestPage(page);
+    await createServiceRequestWithImage(page, requestData.edgeRequests[3].title, requestData.edgeRequests[3].images, requestData.edgeRequests[3].detail);
+    await handleWaitingAction(page, requestData.validRequests[0].status);
     await backToRequestPageByButton(page);
   });
 

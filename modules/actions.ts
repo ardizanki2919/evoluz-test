@@ -25,6 +25,19 @@ export const createServiceRequest = async (page, title = '', details = '') => {
     await page.waitForTimeout(6000);
 };
 
+export const createServiceRequestWithImage = async (page, title = '', images = '', details = '') => {
+    await page.getByRole('button', { name: ' Tambah Permintaan Pelayanan' }).click();
+    await page.waitForTimeout(3000);
+    await expect(page).toHaveURL(`${baseUrl}/apps/request-service/add`);
+
+    await page.locator('#billing_requestService').fill(title);
+    await page.locator('#file-upload').setInputFiles(images || null);
+    await page.locator('.ck-placeholder').fill(details);
+    await page.waitForTimeout(3000);
+    await page.getByRole('button', { name: ' Kirim' }).click();
+    await page.waitForTimeout(6000);
+};
+
 export const handleWaitingAction = async (page, action, reason = '') => {
     await page.getByRole('button', { name: 'waiting' }).click()
     await page.waitForTimeout(6000);
