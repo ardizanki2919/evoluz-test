@@ -46,5 +46,4 @@ export const requestData = {
         expected: 'Data Tidak Ada',
       },
     ],
-  };
-  
+};
