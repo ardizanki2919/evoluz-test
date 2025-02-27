@@ -61,7 +61,7 @@ While the tests cover the essential features, there are still areas that need op
 - [x] Timeout
 - [x] Locators
 - [x] Scrolling
-- [ ] CI/CD with GitHub Actions
+- [x] CI/CD with GitHub Actions
 
 ## License
 
