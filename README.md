@@ -41,8 +41,13 @@ Create a .env file in the root directory, using .env.example as a template.
 
 #### 5. Run Playwright Tests
 
-To run tests in UI Mode:
+To run tests in UI Mode - Login Feature:
 
+```bash
+npx playwright test login.spec.ts --ui
+```
+
+To run tests in UI Mode - Request Service Feature:
 ```bash
 npx playwright test request-service.spec.ts --ui
 ```
